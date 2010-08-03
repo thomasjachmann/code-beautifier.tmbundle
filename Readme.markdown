@@ -40,3 +40,7 @@ This was based on the [ruby beautifier script][rbs] by Paul Lutus and [Beautiful
 
   [rbs]:http://www.arachnoid.com/ruby/rubyBeautifier.html
   [brit]:http://blog.neontology.com/posts/2006/05/10/beautiful-ruby-in-textmate
+
+## Changes in this fork
+
+ - put private/protected/public on class level
