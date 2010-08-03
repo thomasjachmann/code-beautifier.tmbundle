@@ -52,13 +52,14 @@ unless RBeautify::Language.language(:ruby)
 
   ruby.add_matcher(:standard,
                    /((#{start_statement_boundary}(module|class|def))|#{pre_keyword_boundary}do)\b/,
-                   /(((^|;|\s)end)|#{continue_statement_boundary}(rescue|ensure))\b/,
+                   /(((^|;|\s)(end|public|protected|private))|#{continue_statement_boundary}(rescue|ensure))\b/,
                    :nest_except => [:double_quote, :regex, :backtick])
 
   ruby.add_matcher(:implicit_end,
                    /^(public|protected|private)$/,
-                   /^(public|protected|private)(\s*)?(#.*)?$/,
+                   /^(end|public|protected|private)(\s*)?(#.*)?$/,
                    :end => :implicit,
+                   :indent_size => 2,
                    :nest_except => [:double_quote, :regex, :backtick])
 
   ruby.add_matcher(:more,
