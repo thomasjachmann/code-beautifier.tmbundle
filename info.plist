@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>374B6862-84D9-4169-8B42-E090EEF63DC2</string>
+			<string>DCFD4DD0-4644-4FFC-92FD-DCA6997717E7</string>
+			<string>B6DE0B79-ECEC-4E9C-AA1F-4619F91A081A</string>
+		</array>
+		<key>submenus</key>
+		<dict/>
+	</dict>
 	<key>name</key>
 	<string>Code Beautifier</string>
 	<key>ordering</key>

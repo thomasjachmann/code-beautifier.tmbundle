@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+# see Help / Environment Variables for the full list
+begin
+  require File.join(ENV['TM_SUPPORT_PATH'], 'lib', 'exit_codes')
+  require File.join(ENV['TM_BUNDLE_SUPPORT'], 'lib', 'rbeautify')
+
+  if ENV['TM_PROJECT_DIRECTORY']
+    Dir.chdir(ENV['TM_PROJECT_DIRECTORY']) do
+      files = Dir['**/*.rb']
+
+      puts "&lt;h1&gt;Beautifying ruby files&lt;/h1&gt;"
+
+      if files.empty?
+        puts "&lt;p&gt;No changed or added ruby files.&lt;/p&gt;"
+
+      else
+        puts "&lt;ol&gt;"
+        files.each do |file_name|
+          message = file_name.dup
+          begin
+            if RBeautify.beautify_file(File.join(ENV['TM_PROJECT_DIRECTORY'], file_name))
+              message &lt;&lt; ' - beautifed'
+            else
+              message &lt;&lt; ' - no updates required'
+            end
+          rescue Exception =&gt; e
+            message &lt;&lt; " - threw exception #{e}"
+          end
+          puts "&lt;li&gt;#{message}&lt;/li&gt;"
+        end
+        puts "&lt;/o&gt;"
+      end
+
+    end
+  else
+    TextMate.exit_show_tool_tip "No project directory."
+  end
+
+rescue Exception =&gt; e
+  TextMate.exit_show_tool_tip "There is a problem beautifying this source: #{e}"
+end</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^~@B</string>
+	<key>name</key>
+	<string>Beautify all</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>DCFD4DD0-4644-4FFC-92FD-DCA6997717E7</string>
+</dict>
+</plist>
