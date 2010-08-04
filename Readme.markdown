@@ -44,3 +44,5 @@ This was based on the [ruby beautifier script][rbs] by Paul Lutus and [Beautiful
 ## Changes in this fork
 
  - put private/protected/public on class level
+ - made "Beautify all changed" available everywhere and save all files before run
+ - created "Beautify all" command
