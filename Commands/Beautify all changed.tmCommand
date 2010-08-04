@@ -59,8 +59,6 @@ end</string>
 	<string>Beautify all changed</string>
 	<key>output</key>
 	<string>showAsHTML</string>
-	<key>scope</key>
-	<string>source.ruby</string>
 	<key>uuid</key>
 	<string>B6DE0B79-ECEC-4E9C-AA1F-4619F91A081A</string>
 </dict>
